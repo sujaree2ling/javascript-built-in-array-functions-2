@@ -1,7 +1,18 @@
 const carCollection = ["toyota", "fiat", "honda", "bmw"];
 
 function updateCarCollection(carBrand) {
-  // Start coding here
+  // แปลงค่าที่รับเข้ามาให้เป็นตัวพิมพ์เล็กทั้งหมดเพื่อป้องกันปัญหาการพิมพ์ตัวเล็ก/ใหญ่ไม่ตรงกัน
+  const brandToSearch = carBrand.toLowerCase();
+
+  // 1. ตรวจสอบว่ามียี่ห้อรถนี้ใน Collection แล้วหรือยัง
+  if (carCollection.includes(brandToSearch)) {
+    const position = carCollection.indexOf(brandToSearch) + 1;
+    return `${brandToSearch} has already existed in the ${position} position of car collection.`;
+  } else {
+    carCollection.push(brandToSearch);
+    return `new car collection is : ${carCollection.join(",")}.`;
+    
+  }
 }
 
 //ผลลัพธ์ที่ควรได้จาก Example case
